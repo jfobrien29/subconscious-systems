@@ -5,6 +5,7 @@ import { api } from '@/convex/_generated/api';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import Image from 'next/image';
 
 export default function Home() {
   const getAllPrompts = useQuery(api.prompts.getAllPrompts);
@@ -12,7 +13,10 @@ export default function Home() {
   const submitPrompt = useMutation(api.prompts.saveEmailAndPrompt);
 
   const validationSchema = yup.object().shape({
-    prompt: yup.string().required('Prompt is required'),
+    prompt: yup
+      .string()
+      .required('Prompt is required')
+      .max(500, 'Prompt must be less than 500 characters'),
     email: yup.string().email('Invalid email').required('Email is required'),
   });
 
@@ -72,7 +76,7 @@ export default function Home() {
         <div className="max-w-xl mx-auto pt-12" id="demo">
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-8 bg-white animate-[fade-in-down_0.4s_ease-out_forwards] opacity-0 delay-500">
             <h2 className="text-lg font-semibold mb-2">
-              Try Our Beta Launch: Free Stable Diffusion Generation
+              Try Our First Product: Free Stable Diffusion Generation
             </h2>
             <p className="text-sm text-muted-foreground mb-6">
               Submit an image prompt, and we will generate an image for you with Stable Diffusion at
@@ -113,7 +117,7 @@ export default function Home() {
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
             <h3 className="text-xl font-semibold mb-2">Pending Prompts</h3>
             <p className="text-muted-foreground mb-2 border-b pb-8">
-              We're generating the first 1000 images free.
+              We're generating our first 1000 images free.
             </p>
             {getAllPrompts?.map((prompt: any) => (
               <div
@@ -136,9 +140,10 @@ export default function Home() {
             <h2 className="text-lg font-semibold mb-4">About Subconscious Systems</h2>
             <div className="space-y-4 text-sm text-muted-foreground">
               <p>
-                We're at team from MIT designing a platform from the ground up for asynchronous
-                inference. By allowing for delayed processing, we can optimize your AI workloads in
-                ways that aren't possible with real-time inference.
+                We're at team from MIT designing a platform from the ground up for asynchronous AI
+                inference. By delaying processing, we can optimize AI workloads in ways that aren't
+                possible with real-time inference to save significant cost and gaurentee
+                availability.
               </p>
               <p>
                 When your use case can tolerate a time delay - whether it's minutes or hours - we
@@ -147,11 +152,12 @@ export default function Home() {
               <ul className="list-disc pl-6 space-y-2">
                 <li>Batch similar requests together for higher throughput</li>
                 <li>Schedule processing during off-peak hours when compute costs are lower</li>
-                <li>Queue and prioritize jobs based to push our hardware utilization</li>
+                <li>Run compute in regions with lower electricity costs</li>
+                <li>Queue jobs based to increase our hardware utilization</li>
                 <li>And much more!</li>
               </ul>
               <p>
-                You shouldn't have to think about any of this. You should be focused on building
+                But you shouldn't have to worry about any of this. You should be focused on building
                 epic experiences for whatever you're making. We make AI cheaper, you focus on
                 building.
               </p>
@@ -161,7 +167,10 @@ export default function Home() {
       </div>
 
       <footer className="relative z-10 text-center text-sm text-muted-foreground">
-        Subconscious Systems © 2024
+        <div className="flex gap-2 items-center justify-center">
+          <p>Subconscious Systems © 2024</p>
+          <Image src="/android-chrome-192x192.png" alt="MIT" width={20} height={20} />
+        </div>
       </footer>
     </div>
   );

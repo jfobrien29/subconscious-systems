@@ -30,7 +30,12 @@ export const saveEmailAndPrompt = mutation({
 export const getAllPrompts = query({
   args: {},
   handler: async (ctx) => {
-    return await ctx.db.query('prompts').order('desc').take(5);
+    const prompts = await ctx.db.query('prompts').order('desc').take(5);
+    return prompts.map((prompt) => ({
+      prompt: prompt.prompt.length > 100 ? prompt.prompt.substring(0, 100) + '...' : prompt.prompt,
+
+      email: prompt.email.replace(/@/g, ' at '),
+    }));
   },
 });
 
