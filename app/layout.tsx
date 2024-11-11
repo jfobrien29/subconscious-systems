@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
+import { PT_Mono } from 'next/font/google';
 import { ConvexClientProvider } from './ConvexClientProvider';
 import { Toaster } from '@/components/ui/toaster';
 
@@ -13,6 +14,12 @@ const geistMono = localFont({
   src: './fonts/GeistMonoVF.woff',
   variable: '--font-geist-mono',
   weight: '100 900',
+});
+
+const ptMono = PT_Mono({
+  subsets: ['latin'],
+  variable: '--font-pt-mono',
+  weight: '400',
 });
 
 export const metadata: Metadata = {
@@ -33,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${ptMono.className} antialiased`}>
         <ConvexClientProvider>{children}</ConvexClientProvider>
         <Toaster />
       </body>
