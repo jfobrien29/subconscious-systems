@@ -35,7 +35,7 @@ function StayUpdatedDialog() {
     resolver: yupResolver(validationSchema),
   });
 
-  const onSubmit = async (data: { email: string; message: string }) => {
+  const onSubmit = async (data: { email: string; message?: string }) => {
     await saveEmailAndMessage(data);
     reset();
   };
