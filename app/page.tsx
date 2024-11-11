@@ -35,18 +35,23 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] relative">
-      <div className="absolute inset-0 bg-[url('/frf2_nobg.png')] bg-[length:120px_120px] [background-repeat:space_space] opacity-10 z-0"></div>
+    <div className="flex flex-col min-h-screen p-2 pb-20 gap-16 sm:p-8 font-[family-name:var(--font-geist-sans)] relative">
       <div className="relative z-10">
-        <h1 className="font-bold text-center mt-8 ">
-          <span className="md:text-8xl text-5xl">Subconscious Systems</span>
-        </h1>
-        <p className="text-center text-xl mt-6 text-muted-foreground max-w-2xl mx-auto">
-          Simple, background AI processes at extremely low cost
-        </p>
+        <div className="min-h-[50vh] flex flex-col items-center justify-center relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-transparent rounded-lg"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.3)_1px,transparent_1px)] bg-[length:24px_24px]"></div>
+          <h1 className="font-bold text-center relative animate-in">
+            <span className="md:text-9xl text-5xl bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent py-8">
+              Subconscious Systems
+            </span>
+          </h1>
+          <p className="text-center text-xl mt-8 text-muted-foreground max-w-2xl mx-auto relative">
+            Simple, background AI processes at extremely low cost
+          </p>
+        </div>
 
         <div className="max-w-xl mx-auto mt-12">
-          <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-8">
+          <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-8 bg-white">
             <h2 className="text-lg font-semibold mb-2">
               Our First Product: Free AI Image Generation
             </h2>
@@ -87,6 +92,9 @@ export default function Home() {
         <div className="max-w-xl mx-auto mt-12">
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
             <h3 className="text-xl font-semibold mb-4">Pending Prompts</h3>
+            <p className="text-sm text-muted-foreground mb-2">
+              We're generating the first 1000 images free.
+            </p>
             {getAllPrompts?.map((prompt: any) => (
               <div key={prompt._id} className="py-2 border-b last:border-b-0">
                 {prompt.prompt} -{' '}
@@ -97,9 +105,9 @@ export default function Home() {
                 ).toLocaleLowerCase()}
               </div>
             ))}
-            {getAllPromptsCount && (
-              <p className="text-sm text-muted-foreground">
-                {getAllPromptsCount} prompts submitted
+            {getAllPromptsCount && getAllPromptsCount > 5 && (
+              <p className="text-sm text-muted-foreground mt-2">
+                {getAllPromptsCount - 5} more prompts submitted
               </p>
             )}
           </div>

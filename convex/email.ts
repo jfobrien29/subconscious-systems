@@ -19,7 +19,7 @@ export const saveEmailAndPrompt = mutation({
 export const getAllPrompts = query({
   args: {},
   handler: async (ctx) => {
-    return await ctx.db.query('prompts').order('desc').take(20);
+    return await ctx.db.query('prompts').order('desc').take(5);
   },
 });
 
