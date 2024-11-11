@@ -6,10 +6,21 @@ export const saveEmailAndPrompt = mutation({
     email: v.string(),
     prompt: v.string(),
   },
-  handler: async (ctx, args) => {
+  handler: async (ctx, { email, prompt }) => {
+    const emailToLowerCase = email.toLowerCase();
+
+    // First check if the email has already submitted 10 prompts
+    const existingPrompts = await ctx.db
+      .query('prompts')
+      .withIndex('by_email', (q) => q.eq('email', emailToLowerCase))
+      .collect();
+    if (existingPrompts.length >= 10) {
+      throw new Error('User has already submitted 10 prompts');
+    }
+
     const id = await ctx.db.insert('prompts', {
-      email: args.email,
-      prompt: args.prompt,
+      email: emailToLowerCase,
+      prompt: prompt,
       status: 'pending',
     });
     return id;

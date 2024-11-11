@@ -13,7 +13,7 @@ import type {
   FilterApi,
   FunctionReference,
 } from "convex/server";
-import type * as email from "../email.js";
+import type * as prompts from "../prompts.js";
 
 /**
  * A utility for referencing Convex functions in your app's API.
@@ -24,7 +24,7 @@ import type * as email from "../email.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
-  email: typeof email;
+  prompts: typeof prompts;
 }>;
 export declare const api: FilterApi<
   typeof fullApi,

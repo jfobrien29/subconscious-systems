@@ -7,9 +7,9 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 export default function Home() {
-  const getAllPrompts = useQuery(api.email.getAllPrompts);
-  const getAllPromptsCount = useQuery(api.email.getAllPromptsCount);
-  const submitPrompt = useMutation(api.email.saveEmailAndPrompt);
+  const getAllPrompts = useQuery(api.prompts.getAllPrompts);
+  const getAllPromptsCount = useQuery(api.prompts.getAllPromptsCount);
+  const submitPrompt = useMutation(api.prompts.saveEmailAndPrompt);
 
   const validationSchema = yup.object().shape({
     prompt: yup.string().required('Prompt is required'),
@@ -35,17 +35,17 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen p-2 pb-20 gap-16 sm:p-8 font-[family-name:var(--font-geist-sans)] relative">
+    <div className="flex flex-col min-h-screen p-4 pb-20 gap-16 sm:p-8 font-[family-name:var(--font-geist-sans)] relative">
       <div className="relative z-10">
-        <div className="py-8 md:py-24 flex flex-col items-center justify-center relative">
+        <div className="py-12 md:py-24 flex flex-col items-center justify-center relative">
           <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-transparent rounded-lg"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.3)_1px,transparent_1px)] bg-[length:24px_24px]"></div>
           <h1 className="font-bold text-center relative animate-[fade-in-down_0.4s_ease-out_forwards]">
-            <span className="font-bold md:text-9xl text-5xl bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent py-8">
+            <span className="font-bold md:text-9xl text-4xl bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent py-8">
               Subconscious Systems
             </span>
           </h1>
-          <p className="text-center text-xl mt-8 text-muted-foreground max-w-2xl mx-auto relative animate-[fade-in-down_0.4s_ease-out_forwards] opacity-0 delay-200">
+          <p className="text-center text-lg md:text-xl mt-8 text-muted-foreground max-w-2xl mx-auto relative animate-[fade-in-down_0.4s_ease-out_forwards] opacity-0 delay-200">
             Background AI processes at extremely low cost
           </p>
         </div>
@@ -53,12 +53,13 @@ export default function Home() {
         <div className="max-w-xl mx-auto mt-12">
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-8 bg-white animate-[fade-in-down_0.4s_ease-out_forwards] opacity-0 delay-500">
             <h2 className="text-lg font-semibold mb-2">
-              Our First Product: Free AI Flux Pro Generation
+              Try Our Beta Launch: Free Stable Diffusion Generation
             </h2>
             <p className="text-sm text-muted-foreground mb-6">
-              Submit an image prompt, and we will generate an image for you with <a>Flux Pro</a> at
+              Submit an image prompt, and we will generate an image for you with Stable Diffusion at
               a time when it's cheapest for us to run. We're generating the first 1000 images free.
-              Submit a prompt now, and we'll send you an email when it's ready!
+              Submit a prompt now, and we'll send you an email when it's ready (submit up to 10
+              prompts).
             </p>
             <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
               <div className="space-y-2">
