@@ -5,6 +5,7 @@ import { api } from '@/convex/_generated/api';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { TypeAnimation } from 'react-type-animation';
 
 export default function Home() {
   const getAllPrompts = useQuery(api.email.getAllPrompts);
@@ -40,10 +41,14 @@ export default function Home() {
         <div className="md:min-h-[50vh] min-h-[40vh] flex flex-col items-center justify-center relative">
           <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-transparent rounded-lg"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.3)_1px,transparent_1px)] bg-[length:24px_24px]"></div>
-          <h1 className="font-bold text-center relative animate-in">
-            <span className="md:text-9xl text-5xl bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent py-8">
-              Subconscious Systems
-            </span>
+          <h1 className="font-bold text-center relative  md:text-4xl text-5xl bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent py-8">
+            <TypeAnimation
+              sequence={['Subconscious Systems']}
+              wrapper="span"
+              speed={50}
+              style={{ fontSize: '2em', display: 'inline-block' }}
+              repeat={Infinity}
+            />
           </h1>
           <p className="text-center text-xl mt-8 text-muted-foreground max-w-2xl mx-auto relative">
             Simple, background AI processes at extremely low cost
