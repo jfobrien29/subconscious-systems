@@ -77,6 +77,20 @@ const config: Config = {
             transform: 'translateY(0)',
           },
         },
+        'increase-height-and-fade-in': {
+          '0%': {
+            opacity: '1',
+            height: '10%',
+          },
+          '20%': {
+            opacity: '1',
+            height: '20%',
+          },
+          '100%': {
+            opacity: '1',
+            height: '100%',
+          },
+        },
         'accordion-down': {
           from: {
             height: '0',
