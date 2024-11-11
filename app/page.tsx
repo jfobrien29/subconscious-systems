@@ -48,9 +48,28 @@ export default function Home() {
           <p className="text-center text-lg md:text-xl mt-8 text-muted-foreground max-w-2xl mx-auto relative animate-[fade-in-down_0.4s_ease-out_forwards] opacity-0 delay-200">
             Background AI processes at extremely low cost
           </p>
+          <div className="flex gap-4 mt-8 animate-[fade-in-down_0.4s_ease-out_forwards] opacity-0 delay-300">
+            <Button
+              className="text-sm md:text-lg px-6 py-2"
+              onClick={() =>
+                document.querySelector('#demo')?.scrollIntoView({ behavior: 'smooth' })
+              }
+            >
+              Try For Free
+            </Button>
+            <Button
+              variant="outline"
+              className="text-smmd:text-lg px-6 py-2"
+              onClick={() =>
+                document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' })
+              }
+            >
+              What Is This?
+            </Button>
+          </div>
         </div>
 
-        <div className="max-w-xl mx-auto mt-12">
+        <div className="max-w-xl mx-auto pt-12" id="demo">
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-8 bg-white animate-[fade-in-down_0.4s_ease-out_forwards] opacity-0 delay-500">
             <h2 className="text-lg font-semibold mb-2">
               Try Our Beta Launch: Free Stable Diffusion Generation
@@ -114,12 +133,14 @@ export default function Home() {
 
         <div className="max-w-xl mx-auto mt-12 mb-16">
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-8">
-            <h2 className="text-lg font-semibold mb-4">About Subconscious Systems</h2>
+            <h2 className="text-lg font-semibold mb-4" id="about">
+              About Subconscious Systems
+            </h2>
             <div className="space-y-4 text-sm text-muted-foreground">
               <p>
-                We're building a platform designed from the ground up for asynchronous inference. By
-                allowing for delayed processing, we can optimize your AI workloads in ways that
-                aren't possible with real-time inference.
+                We're at team from MIT designing a platform from the ground up for asynchronous
+                inference. By allowing for delayed processing, we can optimize your AI workloads in
+                ways that aren't possible with real-time inference.
               </p>
               <p>
                 When your use case can tolerate a time delay - whether it's minutes or hours - we
