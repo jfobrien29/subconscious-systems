@@ -37,7 +37,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen p-2 pb-20 gap-16 sm:p-8 font-[family-name:var(--font-geist-sans)] relative">
       <div className="relative z-10">
-        <div className="min-h-[50vh] flex flex-col items-center justify-center relative">
+        <div className="md:min-h-[50vh] min-h-[40vh] flex flex-col items-center justify-center relative">
           <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-transparent rounded-lg"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.3)_1px,transparent_1px)] bg-[length:24px_24px]"></div>
           <h1 className="font-bold text-center relative animate-in">
