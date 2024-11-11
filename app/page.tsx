@@ -131,11 +131,9 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="max-w-xl mx-auto mt-12 mb-16">
+        <div className="max-w-xl mx-auto pt-12 mb-16" id="about">
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-8">
-            <h2 className="text-lg font-semibold mb-4" id="about">
-              About Subconscious Systems
-            </h2>
+            <h2 className="text-lg font-semibold mb-4">About Subconscious Systems</h2>
             <div className="space-y-4 text-sm text-muted-foreground">
               <p>
                 We're at team from MIT designing a platform from the ground up for asynchronous
