@@ -75,7 +75,12 @@ export default function Home() {
             <h3 className="text-xl font-semibold mb-4">Pending Prompts</h3>
             {getAllPrompts?.map((prompt: any) => (
               <div key={prompt._id} className="py-2 border-b last:border-b-0">
-                {prompt.prompt} - {prompt.email}
+                {prompt.prompt} -{' '}
+                {(
+                  prompt.email[0] +
+                  '****' +
+                  prompt.email.substring(prompt.email.indexOf('@'))
+                ).toLocaleLowerCase()}
               </div>
             ))}
           </div>
