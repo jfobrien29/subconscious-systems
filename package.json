@@ -1,5 +1,5 @@
 {
-  "name": "front-row-fantasy",
+  "name": "subconscious-systems",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -27,7 +27,7 @@
     "axios": "^1.7.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
-    "convex": "^1.16.3",
+    "convex": "^1.17.0",
     "ky": "^1.7.2",
     "lucide": "^0.456.0",
     "lucide-react": "^0.447.0",
