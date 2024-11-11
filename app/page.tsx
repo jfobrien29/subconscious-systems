@@ -6,6 +6,92 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Image from 'next/image';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+
+function StayUpdatedDialog() {
+  const saveEmailAndMessage = useMutation(api.emails.saveEmailAndMessage);
+  const validationSchema = yup.object().shape({
+    email: yup.string().email('Invalid email').required('Email is required'),
+    message: yup.string().optional(),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting, errors },
+    reset,
+  } = useForm({
+    resolver: yupResolver(validationSchema),
+  });
+
+  const onSubmit = async (data: { email: string; message: string }) => {
+    await saveEmailAndMessage(data);
+    reset();
+  };
+
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="outline" className="w-full mt-4">
+          Stay Updated
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <DialogHeader>
+            <DialogTitle>Stay Updated</DialogTitle>
+            <DialogDescription>
+              Enter your email to reach out and receive updates about Subconscious Systems.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="grid gap-4 py-4">
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-right">
+                Email
+              </Label>
+              <div className="col-span-3">
+                <Input {...register('email')} type="email" placeholder="you@example.com" />
+                {errors.email && (
+                  <p className="text-sm text-destructive mt-1">{errors.email.message}</p>
+                )}
+              </div>
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="message" className="text-right">
+                Message (optional)
+              </Label>
+              <div className="col-span-3">
+                <Textarea
+                  {...register('message')}
+                  placeholder="I have an inference workload I'd like to optimize..."
+                />
+                {errors.message && (
+                  <p className="text-sm text-destructive mt-1">{errors.message.message}</p>
+                )}
+              </div>
+            </div>
+          </div>
+          <DialogFooter>
+            <Button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? 'Saving Email...' : 'Submit Email'}
+            </Button>
+          </DialogFooter>
+        </form>
+      </DialogContent>
+    </Dialog>
+  );
+}
 
 export default function Home() {
   const getAllPrompts = useQuery(api.prompts.getAllPrompts);
@@ -124,7 +210,8 @@ export default function Home() {
                 key={prompt._id}
                 className="py-2 border-b last:border-b-0 text-muted-foreground text-sm"
               >
-                {prompt.prompt}
+                <div>{prompt.prompt}</div>
+                <div className="text-xs text-muted-foreground mt-1">By {prompt.email}</div>
               </div>
             ))}
             {getAllPromptsCount && getAllPromptsCount > 5 && (
@@ -140,27 +227,28 @@ export default function Home() {
             <h2 className="text-lg font-semibold mb-4">About Subconscious Systems</h2>
             <div className="space-y-4 text-sm text-muted-foreground">
               <p>
-                We're at team from MIT designing a platform from the ground up for asynchronous AI
-                inference. By delaying processing, we can optimize AI workloads in ways that aren't
-                possible with real-time inference to save significant cost and gaurentee
-                availability.
-              </p>
-              <p>
                 When your use case can tolerate a time delay - whether it's minutes or hours - we
+                can optimize AI workloads in ways that aren't possible with real-time inference. We
                 can:
               </p>
               <ul className="list-disc pl-6 space-y-2">
-                <li>Batch similar requests together for higher throughput</li>
                 <li>Schedule processing during off-peak hours when compute costs are lower</li>
                 <li>Run compute in regions with lower electricity costs</li>
-                <li>Queue jobs based to increase our hardware utilization</li>
+                <li>Batch similar requests together for higher throughput</li>
                 <li>And much more!</li>
               </ul>
               <p>
-                But you shouldn't have to worry about any of this. You should be focused on building
-                epic experiences for whatever you're making. We make AI cheaper, you focus on
-                building.
+                You shouldn't need to worry about any of this. You should be focused on building
+                epic experiences for whatever it is you're making, not optimizing your
+                infrastructure. We make AI cheaper, you focus on building.
               </p>
+              <p>
+                We're at team from MIT designing this platform from the ground up to optimize
+                asynchronous AI inference workloads. We'd love to hear from you about what you're
+                making and how we can help.
+              </p>
+
+              <StayUpdatedDialog />
             </div>
           </div>
         </div>

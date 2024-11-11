@@ -34,7 +34,7 @@ export const getAllPrompts = query({
     return prompts.map((prompt) => ({
       prompt: prompt.prompt.length > 100 ? prompt.prompt.substring(0, 100) + '...' : prompt.prompt,
 
-      email: prompt.email.replace(/@/g, ' at '),
+      email: `${prompt.email[0]}****${prompt.email.substring(prompt.email.indexOf('@'))}`,
     }));
   },
 });

@@ -7,4 +7,8 @@ export default defineSchema({
     prompt: v.string(),
     status: v.string(),
   }).index('by_email', ['email']),
+  emails: defineTable({
+    email: v.string(),
+    message: v.string(),
+  }).index('by_email', ['email']),
 });
