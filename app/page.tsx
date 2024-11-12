@@ -47,7 +47,7 @@ function StayUpdatedDialog() {
           Stay Updated
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="max-w-[350px] sm:max-w-[425px] rounded-md">
         <form onSubmit={handleSubmit(onSubmit)}>
           <DialogHeader>
             <DialogTitle>Stay Updated</DialogTitle>
@@ -136,7 +136,7 @@ export default function Home() {
             </span>
           </h1>
           <p className="text-center text-lg md:text-xl mt-8 text-muted-foreground max-w-2xl mx-auto relative animate-[fade-in-down_0.4s_ease-out_forwards] opacity-0 delay-200">
-            Background AI processes at extremely low cost
+            Asynchronous AI Workloadsat a Fraction of the Cost
           </p>
           <div className="flex gap-4 mt-8 animate-[fade-in-down_0.4s_ease-out_forwards] opacity-0 delay-300">
             <Button
@@ -166,7 +166,8 @@ export default function Home() {
             </h2>
             <p className="text-sm text-muted-foreground mb-6">
               Submit an image prompt, and we will generate an image for you with Stable Diffusion at
-              a time when it's cheapest for us to run. We're generating the first 1000 images free.
+              a time when it's cheapest for us to run. We're generating the first 1000 images free
+              and aiming to cut our costs 70%+ vs. hosted instances on replicate or Together AI.
               Submit a prompt now, and we'll send you an email when it's ready (submit up to 10
               prompts).
             </p>
@@ -227,25 +228,27 @@ export default function Home() {
             <h2 className="text-lg font-semibold mb-4">About Subconscious Systems</h2>
             <div className="space-y-4 text-sm text-muted-foreground">
               <p>
-                When your use case can tolerate a time delay - whether it's minutes or hours - we
-                can optimize AI workloads in ways that aren't possible with real-time inference. We
-                can:
+                When your use case can tolerate a delay—whether it's minutes or hours—we can
+                optimize your AI workloads in ways that aren't feasible with real-time inference.
+                Behind the scenes, we're able to:
               </p>
               <ul className="list-disc pl-6 space-y-2">
                 <li>Schedule processing during off-peak hours when compute costs are lower</li>
-                <li>Run compute in regions with lower electricity costs</li>
+                <li>Run compute in regions with cheaper electricity</li>
                 <li>Batch similar requests together for higher throughput</li>
                 <li>And much more!</li>
               </ul>
               <p>
-                You shouldn't need to worry about any of this. You should be focused on building
-                epic experiences for whatever it is you're making, not optimizing your
-                infrastructure. We make AI cheaper, you focus on building.
+                You shouldn’t need to worry about optimizing infrastructure. Instead, focus on
+                building epic experiences core to your product. We make AI cheaper—so you can focus
+                on building.
               </p>
               <p>
-                We're at team from MIT designing this platform from the ground up to optimize
-                asynchronous AI inference workloads. We'd love to hear from you about what you're
-                making and how we can help.
+                We're a team from MIT designing a platform from the ground up to optimize
+                asynchronous AI inference workloads. As compute, energy, and cost constraints
+                intensify and inference-time compute workloads scale up to, we aim to power the next
+                wave of AI products. We’d love to hear about what you're building and explore how
+                our platform can support you.
               </p>
 
               <StayUpdatedDialog />

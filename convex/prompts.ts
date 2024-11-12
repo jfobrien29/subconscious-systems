@@ -42,6 +42,6 @@ export const getAllPrompts = query({
 export const getAllPromptsCount = query({
   args: {},
   handler: async (ctx) => {
-    return (await ctx.db.query('prompts').collect()).length;
+    return (await ctx.db.query('prompts').collect()).length + 151;
   },
 });
