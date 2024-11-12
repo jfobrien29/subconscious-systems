@@ -24,7 +24,7 @@ const ptMono = PT_Mono({
 
 export const metadata: Metadata = {
   title: 'Subconscious Systems',
-  description: 'Simple, background AI workloads at extremely low cost',
+  description: 'Asynchronous AI Workloadsat a Fraction of the Cost',
 };
 
 export const viewport: Viewport = {
