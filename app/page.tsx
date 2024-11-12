@@ -246,7 +246,7 @@ export default function Home() {
               <p>
                 We're a team from MIT designing a platform from the ground up to optimize
                 asynchronous AI inference workloads. As compute, energy, and cost constraints
-                intensify and inference-time compute workloads scale up to, we aim to power the next
+                intensify and inference-time compute workloads scale up, we aim to power the next
                 wave of AI products. We’d love to hear about what you're building and explore how
                 our platform can support you.
               </p>
