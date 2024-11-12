@@ -136,7 +136,7 @@ export default function Home() {
             </span>
           </h1>
           <p className="text-center text-lg md:text-xl mt-8 text-muted-foreground max-w-2xl mx-auto relative animate-[fade-in-down_0.4s_ease-out_forwards] opacity-0 delay-200">
-            Asynchronous AI Workloadsat a Fraction of the Cost
+            Asynchronous AI Workloads at a Fraction of the Cost
           </p>
           <div className="flex gap-4 mt-8 animate-[fade-in-down_0.4s_ease-out_forwards] opacity-0 delay-300">
             <Button
