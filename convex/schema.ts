@@ -6,7 +6,10 @@ export default defineSchema({
     email: v.string(),
     prompt: v.string(),
     status: v.string(),
-  }).index('by_email', ['email']),
+    hidden: v.boolean(),
+  })
+    .index('by_email', ['email'])
+    .index('by_hidden', ['hidden']),
   emails: defineTable({
     email: v.string(),
     message: v.string(),
