@@ -228,19 +228,19 @@ export default function Home() {
             <h2 className="text-lg font-semibold mb-4">About Subconscious Systems</h2>
             <div className="space-y-4 text-sm text-muted-foreground">
               <p>
-                When your use case can tolerate a delay—whether it's minutes or hours—we can
+                When your use case can tolerate a delay, whether it's minutes or hours, we can
                 optimize your AI workloads in ways that aren't feasible with real-time inference.
                 Behind the scenes, we're able to:
               </p>
               <ul className="list-disc pl-6 space-y-2">
                 <li>Schedule processing during off-peak hours when compute costs are lower</li>
-                <li>Run compute in regions with cheaper electricity</li>
+                <li>Run compute in regions with cheaper and greener electricity</li>
                 <li>Batch similar requests together for higher throughput</li>
                 <li>And much more!</li>
               </ul>
               <p>
                 You shouldn’t need to worry about optimizing infrastructure. Instead, focus on
-                building epic experiences core to your product. We make AI cheaper—so you can focus
+                building epic experiences core to your product. We make AI cheaper, so you can focus
                 on building.
               </p>
               <p>
