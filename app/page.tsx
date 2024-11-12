@@ -136,7 +136,7 @@ export default function Home() {
             </span>
           </h1>
           <p className="text-center text-lg md:text-xl mt-8 text-muted-foreground max-w-2xl mx-auto relative animate-[fade-in-down_0.4s_ease-out_forwards] opacity-0 delay-200">
-            Asynchronous AI Workloads at a Fraction of the Cost
+            Asynchronous AI Inference at a Fraction of the Cost
           </p>
           <div className="flex gap-4 mt-8 animate-[fade-in-down_0.4s_ease-out_forwards] opacity-0 delay-300">
             <Button
@@ -229,7 +229,7 @@ export default function Home() {
             <div className="space-y-4 text-sm text-muted-foreground">
               <p>
                 When your use case can tolerate a delay, whether it's minutes or hours, we can
-                optimize your AI workloads in ways that aren't feasible with real-time inference.
+                optimize your AI inference in ways that aren't feasible with real-time responses.
                 Behind the scenes, we're able to:
               </p>
               <ul className="list-disc pl-6 space-y-2">
