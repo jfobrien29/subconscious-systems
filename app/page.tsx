@@ -19,7 +19,13 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 
-function StayUpdatedDialog({ buttonText = 'Stay Updated' }: { buttonText?: string }) {
+function StayUpdatedDialog({
+  buttonText = 'Stay Updated',
+  className,
+}: {
+  buttonText?: string;
+  className?: string;
+}) {
   const saveEmailAndMessage = useMutation(api.emails.saveEmailAndMessage);
   const validationSchema = yup.object().shape({
     email: yup.string().email('Invalid email').required('Email is required'),
@@ -43,7 +49,7 @@ function StayUpdatedDialog({ buttonText = 'Stay Updated' }: { buttonText?: strin
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="text-sm md:text-lg px-6 py-2">{buttonText}</Button>
+        <Button className={className}>{buttonText}</Button>
       </DialogTrigger>
       <DialogContent className="max-w-[350px] sm:max-w-[425px] rounded-md">
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -107,7 +113,7 @@ export default function Home() {
             Asynchronous AI Inference at a Fraction of the Cost
           </p>
           <div className="flex gap-4 mt-8 animate-[fade-in-down_0.4s_ease-out_forwards] opacity-0 delay-300">
-            <StayUpdatedDialog buttonText="Stay Updated" />
+            <StayUpdatedDialog buttonText="Stay Updated" className="text-sm md:text-lg px-6 py-2" />
             <Button
               variant="outline"
               className="text-sm md:text-lg px-6 py-2"
@@ -151,7 +157,7 @@ export default function Home() {
                 our platform can support you.
               </p>
 
-              <StayUpdatedDialog />
+              <StayUpdatedDialog className="w-full" />
             </div>
           </div>
         </div>
