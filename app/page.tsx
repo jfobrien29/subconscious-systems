@@ -1,6 +1,6 @@
 'use client';
 import { Button } from '@/components/ui/button';
-import { useMutation, useQuery } from 'convex/react';
+import { useMutation } from 'convex/react';
 import { api } from '@/convex/_generated/api';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
@@ -92,36 +92,6 @@ function StayUpdatedDialog({ buttonText = 'Stay Updated' }: { buttonText?: strin
 }
 
 export default function Home() {
-  const getAllPrompts = useQuery(api.prompts.getAllPrompts);
-  const getAllPromptsCount = useQuery(api.prompts.getAllPromptsCount);
-  const submitPrompt = useMutation(api.prompts.saveEmailAndPrompt);
-
-  const validationSchema = yup.object().shape({
-    prompt: yup
-      .string()
-      .required('Prompt is required')
-      .max(500, 'Prompt must be less than 500 characters'),
-    email: yup.string().email('Invalid email').required('Email is required'),
-  });
-
-  const {
-    register,
-    handleSubmit,
-    formState: { isSubmitting, errors },
-    reset,
-  } = useForm({
-    defaultValues: {
-      prompt: '',
-      email: '',
-    },
-    resolver: yupResolver(validationSchema),
-  });
-
-  const onSubmit = async (data: { prompt: string; email: string }) => {
-    await submitPrompt(data);
-    reset();
-  };
-
   return (
     <div className="flex flex-col min-h-screen p-4 pb-20 gap-16 sm:p-8 font-[family-name:var(--font-geist-sans)] relative">
       <div className="relative z-10">
