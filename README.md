@@ -67,11 +67,11 @@ To keep it dead simple, we'll track out TODOs in the readme here.
 ## Crucial questions
 - We have a few crucial questions to answer:
   1. What's a good price for different pieces of HW? 
-  2. What are HW equivalencies? Ex: How many 3090s does it take to match a A100? There's straightforward math that offers some ideas (FLOPs offered by each), but some specific workflows are going to be less intuitive (newer generations of HW offering newer operations that favor the workflow, more VRAM preventing bottlenecking, etc.). 
+  2. What kind of performance do we get for specific HW? There's straightforward math that offers some ideas (FLOPs offered by each), but some specific workflows are going to be less intuitive (newer generations of HW offering newer operations that favor the workflow, more VRAM preventing bottlenecking, etc.). 
 
 Basically, all that sums up to `What is the price threshold at which a piece of HW will make sense to use for a Workflow given my constraints?`
 
-## Text-to-Image HW equivalencies
+## Text-to-Image HW performances
 I have found some resources around the Text-to-Image space:
 - [Tomshardware comparing consumer GPU performance](https://www.tomshardware.com/pc-components/gpus/stable-diffusion-benchmarks)
 - Stable Diffusion System Performance (an extension)
