@@ -20,7 +20,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 
 function StayUpdatedDialog({
-  buttonText = 'Stay Updated',
+  buttonText = 'Join the Waitlist',
   className,
 }: {
   buttonText?: string;
@@ -54,7 +54,7 @@ function StayUpdatedDialog({
       <DialogContent className="max-w-[350px] sm:max-w-[425px] rounded-md">
         <form onSubmit={handleSubmit(onSubmit)}>
           <DialogHeader>
-            <DialogTitle>Stay Updated</DialogTitle>
+            <DialogTitle>Join the Waitlist</DialogTitle>
             <DialogDescription>
               Enter your email to reach out and receive updates about Subconscious Systems.
             </DialogDescription>
@@ -110,7 +110,7 @@ export default function Home() {
             </span>
           </h1>
           <p className="text-center text-lg md:text-xl mt-8 text-muted-foreground max-w-2xl mx-auto relative animate-[fade-in-down_0.4s_ease-out_forwards] opacity-0 delay-200">
-            Asynchronous AI Inference at a Fraction of the Cost
+            The API for Inexpensive Asynchronous Inference
           </p>
           <div className="flex gap-4 mt-8 animate-[fade-in-down_0.4s_ease-out_forwards] opacity-0 delay-300">
             <StayUpdatedDialog buttonText="Stay Updated" className="text-sm md:text-lg px-6 py-2" />
